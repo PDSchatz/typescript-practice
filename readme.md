@@ -31,6 +31,25 @@ To test your solutions, you can run the test suites using Jest. Tests can be exe
 	```
 - Replace `compress` with the name of the problem you want to test. Make sure the name matches the directory name of the problem in the `src` folder.
 
+### Note on Errors
+
+If you encounter an error like the one below when running tests:
+
+```
+FAIL src/pack/index.test.ts
+● Test suite failed to run
+
+  src/pack/index.test.ts:1:22 - error TS2306: File '/Users/bob//typescript-practice/src/pack/index.ts' is not a module.
+```
+
+This indicates that the TypeScript compiler is having trouble recognizing the file as a module. This is often due to missing or incorrectly implemented exports in the TypeScript file. Ensure that your index.ts file uses proper module syntax, for example:
+
+```
+export function myFunction() {
+  // Your code here
+}
+```
+
 ## Writing Solutions
 
 To solve a problem:
