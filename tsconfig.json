@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+	"target": "es5",         // or whatever your target is
+	"module": "commonjs",    // or whatever your module system is
+	"esModuleInterop": true,
+	"strict": true,          // other options...
+	// ... other options
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
