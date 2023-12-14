@@ -8,3 +8,33 @@
 
 // start by defining the function:
 // export function pack.... Good Luck!
+
+/**
+ * function signature boilerplate:
+    export function pack<Type>(arr: Type[]): Array<Type[]> {
+        return [arr]
+    }
+ * 
+ */
+
+// extremely naieve solution
+export function pack<Type>(arr: Type[]): Array<Type[]> {
+    const output: Array<Type[]> =[]
+    let outputIndex = 0
+    for(let i = 0; i < arr.length; i++) {
+        const el = arr[i]
+
+        if(i === 0){
+            output.push([el])
+            continue;
+        }
+
+        if(el === output[outputIndex][0]) {
+            output[outputIndex].push(el)
+        } else {
+            output.push([el])
+            outputIndex++
+        }
+    }
+    return output
+}
