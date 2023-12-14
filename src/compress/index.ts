@@ -6,3 +6,21 @@
 
 // start by defining the function:
 // export function compress.... Good Luck!
+
+export function compress<Type>(arr: Type[]): Type[] {
+    let pointerA: number = 0
+    let pointerB: number = 1
+    let output: Array<Type>  = []
+
+    while(pointerA <= (arr.length - 1)){
+        let i = arr[pointerA]
+        let b = arr[pointerB]
+        if(i !== b){
+            output.push(i)
+        }
+        pointerA++
+        pointerB++
+    }
+
+    return output
+}
