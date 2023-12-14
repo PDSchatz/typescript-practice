@@ -13,10 +13,10 @@ export function compress<Type>(arr: Type[]): Type[] {
     let output: Array<Type>  = []
 
     while(pointerA <= (arr.length - 1)){
-        let i = arr[pointerA]
-        let b = arr[pointerB]
-        if(i !== b){
-            output.push(i)
+        let elementA = arr[pointerA]
+        let elementB = arr[pointerB]
+        if(elementA !== elementB){
+            output.push(elementA)
         }
         pointerA++
         pointerB++
