@@ -11,7 +11,7 @@ Problems are categorized within the src directory, with each problem contained i
 
 ## Getting Started
 
-1. Clone the repository to your local machine.
+1. Fork the repository and clone it to your local machine.
 2. Navigate to the repository's root directory.
 3. Install the dependencies by running `npm install`.
 
