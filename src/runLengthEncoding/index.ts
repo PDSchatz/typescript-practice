@@ -9,3 +9,14 @@
 // encode("aaaabccaadeeee"); -> [[4, "a"], [1, "b"], [2, "c"], [2, "a"], [1, "d"], [4, "e"]]
 
 // export function encode.... Good Luck!
+
+export function encode(str: string): (string|number)[][] {
+    const strArr = str.match(/(.)\1*/g)
+    if(strArr){
+        return strArr.map(subStr => {
+            return [subStr.length, subStr[0]]
+        })
+    } else {
+        return []
+    }
+}

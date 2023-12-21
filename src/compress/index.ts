@@ -24,3 +24,13 @@ export function compress<Type>(arr: Type[]): Type[] {
 
     return output
 }
+
+export function compressTwo<T>(arr: T[]): T[] {
+    const output = arr.reduce<T[]>((acc, cur) => {
+        if(!acc.includes(cur)){
+            acc.push(cur)
+        }
+        return acc
+    }, [])
+    return output
+}

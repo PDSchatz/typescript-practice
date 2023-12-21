@@ -18,9 +18,10 @@
  */
 
 // extremely naieve solution
-export function pack<Type>(arr: Type[]): Array<Type[]> {
-    const output: Array<Type[]> =[]
-    let outputIndex = 0
+export function pack<T>(arr: T[]): Array<T[]> {
+    let outputIndex: number = 0
+    const output: Array<T[]> =[]
+
     for(let i = 0; i < arr.length; i++) {
         const el = arr[i]
 
@@ -36,5 +37,6 @@ export function pack<Type>(arr: Type[]): Array<Type[]> {
             outputIndex++
         }
     }
+
     return output
 }
