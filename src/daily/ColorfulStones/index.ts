@@ -1,5 +1,3 @@
-
-interface TcolorFace { [key: string]: number }
 /**
     Description
   
@@ -21,14 +19,22 @@ interface TcolorFace { [key: string]: number }
  4) colorfulStones([]) should return an error message or a special value indicating the input is invalid.
 */
 
+/**
+ * interface for map of type: {str: num}, ex: {"A": 3, "B", 2}
+ * We're making this to pass into Array.reduce as the parameter type
+ */
+interface TcolorFace { [key: string]: number }
+
 export function colorfulStones(stones: string[]): (string | string[]) {
     if(stones.length === 0) {
         throw new Error("no length")
     }
 
-    let output = []
-
-    const colorMap = stones.reduce<TcolorFace>((acc, cur): TcolorFace => {
+    // Typing Array.reduce can be tough. Although we are calling it on an Array,
+    // the return value isn't always going to be an array (and if it is, it will),
+    // manipulate the types of the array values.
+    // So we type the parameter to the accumulator value (in this case, a map of string keys and number values)
+    const colorMap = stones.reduce<TcolorFace>((acc, cur) => {
         if(acc[cur]) {
             acc[cur] += 1
             return acc
@@ -36,7 +42,9 @@ export function colorfulStones(stones: string[]): (string | string[]) {
             acc[cur] = 1
             return acc
         }
-    }, {} as TcolorFace)
+    }, {} as TcolorFace) // TS is gonna deduce the value of the accumulator from the parameter type, however, typeof({}) !== TcolorFace, so we use "as" to assure it that the final value will conform to TcolorFace
+
+    let output = []
 
     for(let color in colorMap) {
         if(output.length === 0){
@@ -54,5 +62,6 @@ export function colorfulStones(stones: string[]): (string | string[]) {
             })
         }
     }
+
     return output.length === 1 ? output[0] : output
 }
